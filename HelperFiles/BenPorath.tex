@@ -8,39 +8,30 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{bm}
-\usepackage[table]{xcolor}
-\usepackage{tabu}
-\usepackage{makecell}
-\usepackage{longtable}
-\usepackage{multirow}
-\usepackage[normalem]{ulem}
 \usepackage{etoolbox}
 \usepackage{graphicx}
-\usepackage{tabularx}
-\usepackage{ragged2e} 
-\usepackage{booktabs}
+\usepackage{subfigure}
+\usepackage{tabularx,ragged2e,booktabs}
 \usepackage{caption}
-\usepackage[none]{hyphenat}
+\usepackage{hyphenat}
 \usepackage{fixltx2e}
-\usepackage{threeparttablex}
+\usepackage[para]{threeparttable}
 \usepackage[capposition=top]{floatrow}
-\usepackage{subcaption}
 \usepackage{pdfpages}
-\usepackage{pdflscape}
 \usepackage{natbib}
 \definecolor{maroon}{HTML}{990012}
 \usepackage[colorlinks=true,linkcolor=maroon,citecolor=maroon]{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{shapes}
 \usepackage{setspace}
-\usepackage{enumerate}
+\singlespacing
+\usepackage{rotating}
 
-%Functions
-\DeclareMathOperator{\cov}{Cov}
-\DeclareMathOperator{\var}{Var}
-\DeclareMathOperator{\plim}{plim}
+%Watermark
+\usepackage[printwatermark]{xwatermark}
+\usepackage{lipsum}
+\definecolor{lightgray}{RGB}{220,220,220}
+\newwatermark[allpages,color=lightgray,angle=45,scale=3,xpos=0,ypos=0]{Preliminary Draft}
 
-%Math Environments
+%Environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{claim}{Claim}[section]
 \newtheorem{case}{Case}[section]
@@ -59,10 +50,3 @@
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \newcommand{\equald}{\ensuremath{\overset{d}{=}}}
-
-%Logo
-\AddToShipoutPictureBG{%
-  \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=1.5cm]{uchicago.png}}}
-}
-
-
