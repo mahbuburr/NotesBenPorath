@@ -1,0 +1,46 @@
+\label{section:mathappendix}
+
+\subsection{Optimal Control}
+\label{subsection:optimalcontrol}
+
+\noindent Optimal control theory is used to solve continuous time optimization problems formulated using three major components: (i) \textit{state variables}, which describe the state of the system at any given point in time, (ii) \textit{control variables}, which are analogous to the choice variables of a discrete problem and (iii) one or more \textit{laws of motion} or \textit{production function}. The typical problem is formulated as follows:
+
+
+\begin{problem} \label{problem:basicform} (Basic Formulation)
+\begin{equation}
+\max_{x(t), u(t)} \int_0^T \! f(x(t),u(t),t) \, \mathrm{d}t \label{eq:problem1}
+\end{equation}
+\noindent s.t.
+\begin{eqnarray}
+\dot{x}(t) &=& g(x(t),u(t)) \nonumber \\
+x(0) &=& x_0 \nonumber \\
+x(T) &=& T  \nonumber
+\end{eqnarray}
+\end{problem}
+
+where $ 0\leq t \geq T $ and $\dot{x}(t) = \frac{\mathrm{d}x(t)}{\mathrm{d}t}$. In this case, $x(t) $ is a vector of state variables, $u(t) $ is a vector of control variables and $ \dot{x}(t) $ is the law of motion. The terminal condition may also be left free with $T \rightarrow \infty$; however, we only deal with finite horizon problems in this document and thus, focus on that case. Typically, the objective function and law of motion are assumed to be continuous, twice differentiable, strictly increasing and concave in their arguments and to satisfy the Inada conditions. A function $y(x)$ satisfies the Inada conditions if: 
+
+\begin{eqnarray}
+\lim_{ x \to \infty} \frac{\partial y(x)}{\partial x} &=& 0 \nonumber \\
+\lim_{ x \to 0} \frac{\partial y(x)}{\partial x} &=& \infty \nonumber
+\end{eqnarray}
+
+Where in discrete time we would use a Lagrangian to solve the problem, in continuous time we use a Hamiltonian function. We can choose to set up the Hamiltonian as a \textit{current value} function or a \textit{present value} function. Both result in the same optimal paths; however, a present value Hamiltonian considers values discounted to the present value, while the current value Hamiltonian doesn't. Because we use the present value formulation throughout this document, we will provide an overview of the present value formulation here. \footnote{Switching between the present ($H_P$) and current ($H_C$) value formulations is simple, as $H_P = e^{-\rho t}H_C $.}
+
+The present value Hamiltonian is
+
+\begin{equation}
+H(f(\bullet), u(\bullet), \Lambda, t) = f(x(t), u(t),t) + \lambda g(x(t),u(t))
+\end{equation}
+
+Where $\lambda$ is called the \textit{co-state variable} and is analogous to the Lagrangian multiplier. The necessary conditions are the following:
+
+\begin{eqnarray}
+\frac{\partial H(\bullet)}{\partial u(t)} &=& 0 \\
+\frac{\partial H(\bullet)}{\partial x(t)} &=& -\dot{\lambda}(t) \\
+\lambda (T) \geq 0 &,& \lambda (T) x^*(T) = 0  
+\end{eqnarray}
+
+Where (5) are called the transversality conditions. Here, as in the rest of this document, we provide the transversality conditions for a finite horizon problem. \\
+
+\citep {mangasarian1966sufficient} proves that if $(x*(t),u*(t))$ is an admissible pair for \ref{eq:problem1} and if $ H(\bullet)$  is a concave function over an open convex set of all the admissible values of  all $x, u$, then there is a global maximum of $ \int_0^T \! f(x(t),u(t),t) \, \mathrm{d}t$ at $(x*(t),u*(t))$. If $ H(\bullet)$ is strictly concave, then $(x*(t),u*(t))$  yields the unique global maximum of  $ \int_0^T \! f(x(t),u(t),t) \, \mathrm{d}t$.

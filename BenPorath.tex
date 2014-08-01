@@ -18,7 +18,19 @@
 \input{Sections/BasicModel}
 \input{Sections/Literature} 
 
+
+
+%Input Appendices
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\setcounter{section}{0} \renewcommand{\thesection}{Appendix \arabic{section}}
 \clearpage
+\setcounter{figure}{0}  \renewcommand{\thefigure}{A1.\arabic{figure}}
+\setcounter{table}{0}   \renewcommand{\thetable}{A1.\arabic{table}}
+\setcounter{equation}{0}
+\input{Sections/mathappendix}
+
 \bibliographystyle{chicago}
 \bibliography{BibtexFiles/BenPorath}
 
